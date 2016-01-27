@@ -97,10 +97,13 @@
 // Effective horizontal distance bridged by diagonal push rods.
 #define DEFAULT_DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
 
+//Uncomment to enable autocalibration debug messages
+//#define DEBUG_MESSAGES
+
 // Precision for G30 delta autocalibration function
 #define AUTOCALIBRATION_PRECISION 0.03 // mm
 
-// Diameter of print bed (printable area)
+// Diameter of print bed - this is used to set the distance that autocalibration probes the bed at.
 #define BED_DIAMETER 170 // mm
 
 // Z-Probe variables
@@ -110,21 +113,6 @@
 #define Z_PROBE_DEPLOY_END_LOCATION {5, 96, 30, 0} 	  // X, Y, Z, E end location for z-probe deployment sequence
 #define Z_PROBE_RETRACT_START_LOCATION {49, 84, 20, 0}  // X, Y, Z, E start location for z-probe retract sequence
 #define Z_PROBE_RETRACT_END_LOCATION {49, 84, 1, 0}     // X, Y, Z, E end location for z-probe retract sequence 
-
-// Effective X/Y positions of the three vertical towers.
-/*
-#define SIN_60 0.8660254037844386
-#define COS_60 0.5
-#define DELTA_TOWER1_X -SIN_60*DELTA_RADIUS // front left tower
-#define DELTA_TOWER1_Y -COS_60*DELTA_RADIUS
-#define DELTA_TOWER2_X SIN_60*DELTA_RADIUS // front right tower
-#define DELTA_TOWER2_Y -COS_60*DELTA_RADIUS
-#define DELTA_TOWER3_X 0.0 // back middle tower
-#define DELTA_TOWER3_Y DELTA_RADIUS
-*/
-
-// Diagonal rod squared
-//#define DELTA_DIAGONAL_ROD_2 pow(DELTA_DIAGONAL_ROD,2)
 
 //===========================================================================
 //=============================Thermal Settings  ============================
@@ -378,7 +366,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 //#define MANUAL_Z_HOME_POS 222.9  // For delta: Distance between nozzle and print surface after homing.        For J-head
 //#define MANUAL_Z_HOME_POS 206  // For delta: Distance between nozzle and print surface after homing.          For E3D v5
 #define MANUAL_Z_HOME_POS 212.8  // For delta: Distance between nozzle and print surface after homing.          For E3D v6
-
 
 #define AUTOLEVEL_GRID 24  // Distance between autolevel Z probing points, should be less than print surface radius/3.
 
